@@ -14,6 +14,10 @@ watch(refs.firstCurrency, async () => {
   const res = await Api.profitAmount('from', 1, store.firstCurrency.code, store.secondCurrency.code)
   rate.value = res.profit_rate
 })
+watch(refs.secondCurrency, async () => {
+  const res = await Api.profitAmount('from', 1, store.firstCurrency.code, store.secondCurrency.code)
+  rate.value = res.profit_rate
+})
 let abortController = new AbortController()
 const inputChange = async (from) => {
   if (from === 'from' && store.from > 0) {
