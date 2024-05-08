@@ -153,8 +153,8 @@ const closeBlockOutside = (event) => {
           :class="{
             active:
               label === 'Вы отдаете'
-                ? store.firstCurrency.name === item.name
-                : store.secondCurrency.name === item.name
+                ? store.firstCurrency.code === item.code
+                : store.secondCurrency.code === item.code
           }"
           class="flex items-center w-full cursor-pointer p-3 rounded-md border-solid border border-[#F1F3F9]"
         >
