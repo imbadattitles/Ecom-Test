@@ -1,35 +1,48 @@
-# .
-
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Задача:
+Необходимо реализовать калькулятор для обмена криптовалют
+Обязательные функции:
+- Сверстать 1 экран согласно макету (Ссылка)
+- Селектор выбора валют должен иметь 2 состояния - открытое
+и закрытое. При нажатии в любое место кроме самого
+селектора, он должен закрываться.
+- Селекторы выбора валют с фильтрами и поиском на стороне
+фронтенда. Если выбрал валюту в одном селекторе, она
+пропадает в списке другого селектора (менять одинаковые
+валюты нельзя). Если оба инпута пустые, то запрос на расчет
+не происходит, во всех остальных случаях запрос
+отправляется.
+- В полях сумм должна присутствовать валидация на числа.
+Если вводишь сумму в верхний инпут, должна рассчитываться
+сумма в нижний инпут и наоборот. Запросы для расчета ниже
+в разделе API
+- Кнопка “swap” должна менять местами суммы и валюты
+Будет существенным плюсом:
+- Добавить в валидацию полей следующее:
+1. Замена запятых на точки.
+2. Запретить вводить два нуля до точки (например 00.121).
+- Реализовать класс с запросами с использованием и
+настройкой axios
+- Отменять предыдущий запрос amount при быстром вводе
+(axios.CancelToken)
+Стек на выбор:
+1. Bootstrap 5, Vue 2, Vuex, Webpack
+2. Tailwind, Vue 3, Pinia, Vite
+Сдача тестового задания:
+- На выполнение тестового задание дается 3 дня
+- Реализованный проект должен быть размещен на GitHub
+API:
+all_currency - https://api-exchange.cryptocloud.plus/exchange/all_currency (GET)
+profit_amount - https://api-exchange.cryptocloud.plus/exchange/profit_amount
+(POST)
+payload если заполняется верхнее поле:
+{
+amount: 1 (Number)
+from_float: "BTC" (String) -
+to_float: "ETH" (String)
+}
+payload если заполняется нижнее поле:
+{
+amount: 1 (Number)
+from_fixed: "BTC" (String)
+to_fixed: "ETH" (String)
+}
